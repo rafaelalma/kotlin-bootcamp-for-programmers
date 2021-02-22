@@ -1,3 +1,16 @@
+import java.util.*
+
 fun main() {
-    println("Hello Kotlin!")
+    feedTheFish()
+}
+
+fun feedTheFish() {
+    val randomDay = randomDay()
+    val food = "pellets"
+    println("Today is $randomDay and the fish eat $food.")
+}
+
+fun randomDay(): String {
+    val week = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    return week[Random().nextInt(week.size)]
 }
