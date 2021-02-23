@@ -1,5 +1,3 @@
-// Main function
-
 fun main() {
     swim()
     swim("slow")
@@ -9,5 +7,5 @@ fun main() {
 // Default values
 
 fun swim(speed: String = "fast") {
-    println("swimming $speed")
+    println("Swimming $speed")
 }
