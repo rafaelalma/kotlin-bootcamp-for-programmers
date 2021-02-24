@@ -1,13 +1,30 @@
 package example.myapp
 
-class Aquarium {
-    var width: Int = 20
-    var height: Int = 40
-    var length: Int = 100
+class Aquarium(var width: Int = 20, var height: Int = 20, var length: Int = 100) {
+    var volume: Int
+        get() = width * height * length / 1000
+        set(value) {
+            height = (value * 1000) / (width * length)
+        }
 
-    fun printSize() {
-        println("Width: $width cm. " +
-                "Height: $height cm. " +
-                "Lenght: $length cm.")
+    init {
+        println("Aquarium initializing.")
+    }
+
+    constructor(numberOfFish: Int) : this() {
+        // 2000 cm^3 per fish + extra room so water doesn't spill.
+        val tank = numberOfFish * 2000 * 1.1
+
+        // Calculate the height needed.
+        height = (tank / (length * width)).toInt()
+    }
+
+    fun printCharacteristics() {
+        println(
+            "Width: $width cm. " +
+                    "Height: $height cm. " +
+                    "Length: $length cm."
+        )
+        println("Volume: $volume liters.")
     }
 }
