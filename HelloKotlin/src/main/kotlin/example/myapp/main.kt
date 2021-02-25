@@ -1,7 +1,19 @@
 package example.myapp
 
 fun main() {
-    buildAquarium()
+    // buildAquarium()
+
+    makeFish()
+}
+
+fun makeFish() {
+    val shark = Shark()
+    val plecostomus = Plecostomus()
+
+    println("Shark: ${shark.color}")
+    shark.eat()
+    println("Plecostomus: ${plecostomus.color}")
+    plecostomus.eat()
 }
 
 fun buildAquarium() {
