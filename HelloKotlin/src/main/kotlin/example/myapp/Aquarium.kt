@@ -1,11 +1,19 @@
 package example.myapp
 
-class Aquarium(var width: Int = 20, var height: Int = 20, var length: Int = 100) {
-    var volume: Int
+import java.lang.Math.PI
+
+open class Aquarium(var width: Int = 20, open var height: Int = 20, var length: Int = 100) {
+
+    open val shape = "rectangle"
+
+    open var volume: Int
         get() = width * height * length / 1000
         set(value) {
             height = (value * 1000) / (width * length)
         }
+
+    open val water: Double
+        get() = volume * 0.9
 
     init {
         println("Aquarium initializing.")
@@ -20,11 +28,26 @@ class Aquarium(var width: Int = 20, var height: Int = 20, var length: Int = 100)
     }
 
     fun printCharacteristics() {
+        println(shape)
         println(
             "Width: $width cm. " +
                     "Height: $height cm. " +
                     "Length: $length cm."
         )
-        println("Volume: $volume liters.")
+        println("Volume: $volume liters. Water: $water liters. ${water / volume * 100.0}% full.")
     }
+}
+
+class TowerTank(override var height: Int, var diameter: Int) :
+    Aquarium(height = height, width = diameter, length = diameter) {
+
+    override val shape = "cylinder"
+
+    override var volume: Int
+        // Ellipse area = PI * r1 * r2
+        get() = (width / 2 * length / 2 * height / 1000 * PI).toInt()
+        set(value) {
+            height = ((value * 1000 / PI) / (width / 2 * length / 2)).toInt()
+        }
+    override var water = volume * 0.8
 }

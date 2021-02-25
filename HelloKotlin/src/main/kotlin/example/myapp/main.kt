@@ -23,4 +23,10 @@ fun buildAquarium() {
     aquarium5.printCharacteristics()
     aquarium5.volume = 70
     aquarium5.printCharacteristics()
+
+    val aquarium6 = Aquarium(length = 25, height = 40, width = 25)
+    aquarium6.printCharacteristics()
+
+    val myTower = TowerTank(diameter = 25, height = 40)
+    myTower.printCharacteristics()
 }
