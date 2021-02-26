@@ -25,6 +25,10 @@ class Aquarium<out T : WaterSupply>(val waterSupply: T) {
     }
 }
 
+inline fun <reified R: WaterSupply> Aquarium<*>.hasWaterSupplyOfType() = waterSupply is R
+
+inline fun <reified T: WaterSupply> WaterSupply.isOfType() = this is T
+
 fun addItemTo(aquarium: Aquarium<WaterSupply>) = println("Item added")
 
 interface Cleaner<in T : WaterSupply> {
@@ -37,12 +41,15 @@ class TapWaterCleaner : Cleaner<TapWater> {
     }
 }
 
+fun <T : WaterSupply> isWaterClean(aquarium: Aquarium<T>) {
+    println("Aquarium water is clean: ${!aquarium.waterSupply.needsProcessing}")
+}
+
 fun main() {
     genericsExample()
 }
 
 fun genericsExample() {
-    val cleaner = TapWaterCleaner()
     val aquarium = Aquarium(TapWater())
-    aquarium.addWater(cleaner)
+    println(aquarium.hasWaterSupplyOfType<TapWater>())
 }
