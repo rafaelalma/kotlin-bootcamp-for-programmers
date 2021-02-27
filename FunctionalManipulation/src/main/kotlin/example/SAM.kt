@@ -14,7 +14,7 @@ fun main() {
 }
 
 fun runExample() {
-    val runnable = object: Runnable {
+    val runnable = object : Runnable {
         override fun run() {
             println("I'm a Runnable")
         }
