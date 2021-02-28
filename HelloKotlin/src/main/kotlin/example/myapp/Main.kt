@@ -4,6 +4,8 @@ fun main() {
     buildAquarium()
 
     makeFish()
+
+    println(matchSeal(SeaLion))
 }
 
 fun makeFish() {

@@ -36,4 +36,3 @@ fun main() {
     println("-----")
     println("Filtered: ${lazyMap2.toList()}")
 }
-

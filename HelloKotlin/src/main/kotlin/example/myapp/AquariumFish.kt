@@ -4,8 +4,8 @@ package example.myapp
 sealed class Seal
 
 // Can be subclassed in the same file.
-class SeaLion : Seal()
-class Walrus : Seal()
+object SeaLion : Seal()
+object Walrus : Seal()
 
 fun matchSeal(seal: Seal): String {
     return when (seal) {
@@ -41,5 +41,8 @@ class Shark : FishAction, FishColor {
     }
 }
 
-class Plecostomus(fishColor: FishColor = GoldColor, fishAction: FishAction = PrintingFishAction("algae")) :
+class Plecostomus(
+    fishColor: FishColor = GoldColor,
+    fishAction: FishAction = PrintingFishAction("algae")
+) :
     FishAction by fishAction, FishColor by fishColor

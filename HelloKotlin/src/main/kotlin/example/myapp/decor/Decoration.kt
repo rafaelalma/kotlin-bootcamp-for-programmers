@@ -14,7 +14,7 @@ data class Decoration(val rocks: String)
 data class Decoration2(val rocks: String, val wood: String, val diver: String)
 
 fun main() {
-    // makeDecorations()
+    makeDecorations()
 
     println(Direction.EAST.name)
     println(Direction.EAST.ordinal)

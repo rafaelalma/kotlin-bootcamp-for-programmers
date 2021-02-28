@@ -25,9 +25,9 @@ class Aquarium<out T : WaterSupply>(val waterSupply: T) {
     }
 }
 
-inline fun <reified R: WaterSupply> Aquarium<*>.hasWaterSupplyOfType() = waterSupply is R
+inline fun <reified R : WaterSupply> Aquarium<*>.hasWaterSupplyOfType() = waterSupply is R
 
-inline fun <reified T: WaterSupply> WaterSupply.isOfType() = this is T
+inline fun <reified T : WaterSupply> WaterSupply.isOfType() = this is T
 
 fun addItemTo(aquarium: Aquarium<WaterSupply>) = println("Item added")
 
