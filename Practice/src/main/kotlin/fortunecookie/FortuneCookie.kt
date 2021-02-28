@@ -23,9 +23,19 @@ fun getFortuneCookie(): String {
         "Treasure your friends because they are your greatest fortune"
     )
 
+    return when (getBirthday()) {
+        in 1..7 -> fortunes.first()
+        8 -> fortunes[1]
+        9 -> fortunes[2]
+        in 10..15 -> fortunes[3]
+        in 15..25 -> fortunes[4]
+        26 -> fortunes[5]
+        else -> fortunes.last()
+    }
+}
+
+fun getBirthday(): Int {
     print("Enter your birthday: ")
 
-    val birthday = readLine()?.toIntOrNull() ?: 1
-
-    return fortunes[birthday.rem(fortunes.size)]
+    return readLine()?.toIntOrNull() ?: 1
 }
