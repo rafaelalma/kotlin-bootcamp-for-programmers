@@ -1,15 +1,10 @@
 package fortunecookie
 
 fun main() {
-    for (i in 1..10) {
+    do {
         val fortune = getFortuneCookie()
         println("Your fortune is: $fortune")
-
-        if (fortune.contains("Take it easy and enjoy life!")) {
-            break
-        }
-    }
-
+    } while (!fortune.contains("Take it easy and enjoy life!"))
 }
 
 fun getFortuneCookie(): String {
